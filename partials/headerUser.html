@@ -1,0 +1,25 @@
+<nav role="navigation" class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a href="#" class="navbar-brand">BOXSys</a>
+    </div>
+    <div ng-controller="MainController">
+        <div class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav">
+                <li ng-repeat="menu in menus" ng-class="{dropdown: menu.menus}">
+                    <a  ng-class="{'dropdown-toggle': menu.menus}" data-toggle="dropdown">{{menu.title}} <span class="caret"></span></a>
+                    <ul ng-if="menu.menus" class="dropdown-menu">
+                        <li ng-repeat="submenu in menu.menus">
+
+                            <a href="{{submenu.action}}">{{submenu.title}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul  class="nav navbar-nav navbar-right">
+                <li><a style="cursor:pointer" ng-show="IsAuth('login')" ng-click="login()" > Login</a></li>
+                <li style="cursor:pointer"><a  ng-show="IsAuth('logout')" ng-click="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

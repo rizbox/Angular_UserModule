@@ -1,0 +1,45 @@
+<div class="container">
+    <h3>User List</h3>
+
+    <form novalidate="novalidate" class="form-horizontal" ng-controller="UserListController">
+
+        <section>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group input-group-unstyled"  style="width:320px;">
+                        <input type="text" ng-model="query" ng-change="updateFilteredList()" class="form-control" placeholder="Search" style="width:300px;"/>
+    <span class="input-group-addon">
+
+        <i class="glyphicon glyphicon-search"></i>
+
+    </span>
+                    </div>
+
+                </div>
+
+                <a href="#NewUser" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> NewUser</a>
+            </div>
+        </section>
+        <br/>
+
+
+        <div>
+           <div class="box small2" dw-loading="sample-2" dw-loading-options="{active: true}">
+        <table class="table table-striped table-bordered" at-table at-paginated at-list="filteredList" at-config="config">
+            <thead></thead>
+            <tbody>
+            <tr>
+                <td at-implicit at-sortable at-attribute="USERCODE" at-title="UserCode" width="150" at-initial-sorting="asc"></td>
+                <td at-implicit at-sortable at-attribute="USERNAME" at-title="Username" width="450"></td>
+                <td at-implicit at-sortable at-attribute="PASSWORD" at-title="Password" width="250"></td>
+                <td at-title="Action">
+                    <a href="#/editUser/{{item.USERCODE}}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                    <a href="#/editUser/{{item.USERCODE}}" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <at-pagination at-list="filteredList" at-config="config"></at-pagination>
+            </div>
+    </form>
+</div>
